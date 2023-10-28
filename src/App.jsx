@@ -71,12 +71,21 @@ function App() {
             value={task}
             placeholder="Enter a task"
           />
-          <button
-            className="px-4 py-2 bg-blue-500 hover:scale-105 text-white rounded hover:bg-blue-600"
-            onClick={handleClick}
-          >
-            Add
-          </button>
+          {editIndex === null ? (
+            <button
+              className="px-4 py-2 bg-blue-500 hover:scale-105 text-white rounded hover:bg-blue-600"
+              onClick={handleClick}
+            >
+              Add
+            </button>
+          ) : (
+            <button
+              className="px-4 py-2 bg-blue-500 hover:scale-105 text-white rounded hover:bg-blue-600"
+              onClick={handleClick}
+            >
+              Edit
+            </button>
+          )}
         </div>
         {todos.length > 0 ? (
           todos?.map((todo, index) => (
