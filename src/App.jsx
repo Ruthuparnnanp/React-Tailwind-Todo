@@ -49,11 +49,15 @@ function App() {
     setTask(todo);
   };
 
+  const handleclear = () => {
+    setTodos([]);
+  };
+
   return (
     <div className="p-3">
       <div className="container  max-w-lg mx-auto mt-10 p-5 border border-gray-300 bg-gray-100 rounded shadow">
-        <h1 className="text-3xl mb-4 text-center font-sans font-bold">
-          Get things{" "}
+        <h1 className="text-3xl mb-8 text-center font-sans font-bold">
+          GET THINGS{" "}
           <span style={{ fontFamily: "Orbitron" }} className="text-emerald-400">
             DONE
           </span>
@@ -74,30 +78,47 @@ function App() {
             Add
           </button>
         </div>
-        {todos?.map((todo, index) => (
-          <div
-            key={index}
-            className="flex  gap-2 mb-3 border border-gray-400 p-3 rounded justify-between items-center"
-          >
-            <div className="font-bold" key={index}>
-              {todo}
+        {todos.length > 0 ? (
+          todos?.map((todo, index) => (
+            <div
+              key={index}
+              className="flex  gap-2 mb-3 border bg-cyan-100 border-green-400 p-3 rounded justify-between items-center"
+            >
+              <div className="font-semibold text-lg" key={index}>
+                {todo}
+              </div>
+              <div className="btn">
+                <button
+                  className="border border-red-500 hover:scale-95 px-4 py-2 me-2 rounded"
+                  onClick={() => handleEdit(todo, index)}
+                >
+                  <i className="fa-solid fa-pen text-red-600"></i>
+                </button>
+                <button
+                  className="border border-red-500 hover:scale-95 px-4 py-2 rounded"
+                  onClick={() => handledelete(index)}
+                >
+                  <i className="fa-solid fa-trash text-red-600"></i>
+                </button>
+              </div>
             </div>
-            <div className="btn">
-              <button
-                className="border border-red-500 hover:scale-95 px-4 py-2 me-2 rounded"
-                onClick={() => handleEdit(todo, index)}
-              >
-                <i className="fa-solid fa-pen text-red-600"></i>
-              </button>
-              <button
-                className="border border-red-500 hover:scale-95 px-4 py-2 rounded"
-                onClick={() => handledelete(index)}
-              >
-                <i className="fa-solid fa-trash text-red-600"></i>
-              </button>
+          ))
+        ) : (
+          <div className="marquee-container">
+            <div className="marquee-text bg-red-100 rounded marquee-text text-rose-600 p-3 font-bold ">
+              <span>Please add some tasks!</span>
             </div>
           </div>
-        ))}
+        )}
+
+        {todos.length > 1 && (
+          <button
+            onClick={handleclear}
+            className="rounded border text-rose-600 hover:scale-95 border-red-500 px-4 py-2"
+          >
+            Clear All
+          </button>
+        )}
       </div>
     </div>
   );

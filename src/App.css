@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.marquee-container {
+  width: 100%; /* Set your desired width */
+  overflow: hidden;
+}
+
+.marquee-text {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  animation: marquee 8s linear infinite; /* Adjust duration as needed */
+  width: 200px;
+}
+
+.marquee-text span {
+  display: inline-block;
+  margin-right: 20px; /* Adjust spacing between texts as needed */
+  opacity: 0; /* Hide the text initially */
+  animation: fadeInOut 1.5s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  10% {
+    transform: translateX(0%);
+  }
+  90% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
