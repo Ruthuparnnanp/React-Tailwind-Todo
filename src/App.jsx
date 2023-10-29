@@ -73,14 +73,14 @@ function App() {
           />
           {editIndex === null ? (
             <button
-              className="px-4 py-2 bg-blue-500 hover:scale-105 text-white rounded hover:bg-blue-600"
+              className="px-4 py-2 bg-emerald-400 hover:scale-105 text-white rounded font-semibold hover:bg-emerald-500"
               onClick={handleClick}
             >
               Add
             </button>
           ) : (
             <button
-              className="px-4 py-2 bg-blue-500 hover:scale-105 text-white rounded hover:bg-blue-600"
+              className="px-4 py-2 bg-emerald-400 hover:scale-105 text-white rounded font-semibold hover:bg-emerald-500"
               onClick={handleClick}
             >
               Edit
@@ -91,20 +91,20 @@ function App() {
           todos?.map((todo, index) => (
             <div
               key={index}
-              className="flex  gap-2 mb-3 border bg-cyan-100 border-green-400 p-3 rounded justify-between items-center"
+              className="flex  gap-2 mb-3 border bg-green-100 border-green-400 p-3 rounded justify-between items-center"
             >
               <div className="font-semibold text-lg" key={index}>
                 {todo}
               </div>
               <div className="btn">
                 <button
-                  className="border border-red-500 hover:scale-95 px-4 py-2 me-2 rounded"
+                  className="border   hover:border-gray-900 hover:scale-95 px-4 py-2 me-2 rounded"
                   onClick={() => handleEdit(todo, index)}
                 >
-                  <i className="fa-solid fa-pen text-red-600"></i>
+                  <i className="fa-solid fa-pen  text-gray-900"></i>
                 </button>
                 <button
-                  className="border border-red-500 hover:scale-95 px-4 py-2 rounded"
+                  className="border  hover:border-red-700 hover:scale-95 px-4 py-2 rounded"
                   onClick={() => handledelete(index)}
                 >
                   <i className="fa-solid fa-trash text-red-600"></i>
