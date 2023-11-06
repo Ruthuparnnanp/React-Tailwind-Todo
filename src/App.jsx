@@ -73,7 +73,7 @@ function App() {
           />
           {editIndex === null ? (
             <button
-              className="px-4 py-2 bg-emerald-400 hover:scale-105 text-white rounded font-semibold hover:bg-emerald-500"
+              className={` ${!task && "cursor-not-allowed"} px-4 py-2 bg-emerald-400 hover:scale-105 text-white rounded font-semibold hover:bg-emerald-500`}
               onClick={handleClick}
             >
               Add
@@ -98,7 +98,7 @@ function App() {
               </div>
               <div className="btn">
                 <button
-                  className="border   hover:border-gray-900 hover:scale-95 px-4 py-2 me-2 rounded"
+                  className="border  border-gray-200 hover:border-gray-900 hover:scale-95 px-4 py-2 me-2 rounded"
                   onClick={() => handleEdit(todo, index)}
                 >
                   <i className="fa-solid fa-pen  text-gray-900"></i>
@@ -115,7 +115,7 @@ function App() {
         ) : (
           <div className="marquee-container">
             <div className="marquee-text bg-red-100 rounded marquee-text text-rose-600 p-3 font-bold ">
-              <span>Please add some tasks!</span>
+              <span>Please add some tasks !!</span>
             </div>
           </div>
         )}
